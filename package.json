@@ -1,0 +1,14 @@
+{
+  "name": "mtls-envoy",
+  "version": "1.0.0",
+  "description": "this is a sample app that will have an envoy sidecar performing mtls to secure it",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/"
+  },
+  "author": "wilson",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
