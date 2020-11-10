@@ -2,7 +2,7 @@
 a simple application + envoy sidecar configuration for setting up mtls
 
 ## preliminary findings
-- envoy cannot handle egress traffic to perform mtls between proxies, istio handles this by running `iptables` and rerouting all the traffic to go thru the proxy on initialization
+- envoy cannot handle egress traffic natively to perform mtls between proxies, in order to get around this the client service has to effectively hit its envoy proxy with the server's listener and cluster defined on the client's envoy configuration (refer to this [link](https://github.com/dnivra26/envoy_servicemesh) for more information)
 
 ## generating the certs
 **passphrase is 1234**
