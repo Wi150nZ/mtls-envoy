@@ -1,6 +1,9 @@
 # mtls-envoy
 a simple application + envoy sidecar configuration for setting up mtls
 
+## preliminary findings
+- envoy cannot handle egress traffic to perform mtls between proxies, istio handles this by running `iptables` and rerouting all the traffic to go thru the proxy on initialization
+
 ## generating the certs
 **passphrase is 1234**
 ### certificate authority
