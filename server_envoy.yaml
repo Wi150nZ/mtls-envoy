@@ -1,16 +1,15 @@
 # minimalistic mtls terminating tcp proxy config:
 admin:
   access_log_path: /tmp/admin_access.log
-  profile_path: /tmp/envoy.prof
   address:
-    socket_address: { address: 0.0.0.0, port_value: 9901 }
+    socket_address: { address: 0.0.0.0, port_value: 9902 }
 
 static_resources:
   listeners:
     - address:
         socket_address:
           address: 0.0.0.0
-          port_value: 8000
+          port_value: 10002
       filter_chains:
       - filters:
         - name: envoy.filters.network.tcp_proxy
@@ -22,7 +21,7 @@ static_resources:
           common_tls_context:
             validation_context:
               trusted_ca:
-                filename: certs/server/server.crt
+                filename: certs/ca/ca.crt
             tls_certificates:
               - certificate_chain:
                   filename: certs/server/server.crt
@@ -34,6 +33,6 @@ static_resources:
     hosts:
       socket_address:
         address: 127.0.0.1
-        port_value: 8080
+        port_value: 8081
     connect_timeout: 15s
     type: static
