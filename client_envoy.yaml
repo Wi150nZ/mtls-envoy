@@ -49,6 +49,9 @@ static_resources:
         typed_config:
           "@type": type.googleapis.com/envoy.extensions.transport_sockets.tls.v3.UpstreamTlsContext
           common_tls_context:
+            validation_context:
+              trusted_ca:
+                filename: certs/ca/ca.crt
             tls_certificates:
               certificate_chain:
                 filename: certs/client/client.crt
